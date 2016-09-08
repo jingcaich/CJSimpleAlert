@@ -13,6 +13,8 @@
 		BD44090C1D816A5800002D71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD44090A1D816A5800002D71 /* Main.storyboard */; };
 		BD44090E1D816A5800002D71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD44090D1D816A5800002D71 /* Assets.xcassets */; };
 		BD4409111D816A5800002D71 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD44090F1D816A5800002D71 /* LaunchScreen.storyboard */; };
+		BD44091C1D81713B00002D71 /* CJHUDView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD44091A1D81713B00002D71 /* CJHUDView.m */; };
+		BD44091D1D81713B00002D71 /* CJHUDView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD44091B1D81713B00002D71 /* CJHUDView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,9 @@
 		BD44090D1D816A5800002D71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD4409101D816A5800002D71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BD4409121D816A5800002D71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BD4409191D81713B00002D71 /* CJHUDView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJHUDView.h; sourceTree = "<group>"; };
+		BD44091A1D81713B00002D71 /* CJHUDView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJHUDView.m; sourceTree = "<group>"; };
+		BD44091B1D81713B00002D71 /* CJHUDView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CJHUDView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +63,7 @@
 		BD4409001D816A5800002D71 /* CJSimpleView */ = {
 			isa = PBXGroup;
 			children = (
+				BD4409181D81713B00002D71 /* simpleView */,
 				BD4409041D816A5800002D71 /* AppDelegate.h */,
 				BD4409051D816A5800002D71 /* AppDelegate.m */,
 				BD4409071D816A5800002D71 /* ViewController.h */,
@@ -77,6 +83,16 @@
 				BD4409021D816A5800002D71 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BD4409181D81713B00002D71 /* simpleView */ = {
+			isa = PBXGroup;
+			children = (
+				BD4409191D81713B00002D71 /* CJHUDView.h */,
+				BD44091A1D81713B00002D71 /* CJHUDView.m */,
+				BD44091B1D81713B00002D71 /* CJHUDView.xib */,
+			);
+			path = simpleView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +155,7 @@
 				BD4409111D816A5800002D71 /* LaunchScreen.storyboard in Resources */,
 				BD44090E1D816A5800002D71 /* Assets.xcassets in Resources */,
 				BD44090C1D816A5800002D71 /* Main.storyboard in Resources */,
+				BD44091D1D81713B00002D71 /* CJHUDView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,6 +169,7 @@
 				BD4409091D816A5800002D71 /* ViewController.m in Sources */,
 				BD4409061D816A5800002D71 /* AppDelegate.m in Sources */,
 				BD4409031D816A5800002D71 /* main.m in Sources */,
+				BD44091C1D81713B00002D71 /* CJHUDView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
