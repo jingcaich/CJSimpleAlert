@@ -56,13 +56,13 @@
     static CJSimpleHUD *hud;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        hud = [[CJSimpleHUD alloc] initWithFrame:CGRectMake(0, 0, SCREENSIZE.width, SCREENSIZE.height)];
+        hud = [[CJSimpleHUD alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
         CJHUDView *hudView = [CJHUDView loadNibFromBundle];
         hud->_hudView = hudView;
         hud->_timerCount = 0;
-        hud->_successImageName = @"loginup_icon_success";
-        hud->_failedImageName = @"loginup_icon_fail";
-        hud->_processingImageName = @"yuan";
+        hud->_successImageName = @"success";
+        hud->_failedImageName = @"failed";
+        hud->_processingImageName = @"";
         hud->_hudViewSize = hudView.imageView.frame.size;
         hud.backgroundColor = COLOR_HEX(0x000000, 0.0);
         hudView.center = hud.center;
@@ -70,16 +70,18 @@
     });
     return hud;
 }
-+ (void)showFailedMessage:(NSString *)message delegate:(id<CJSimpleHUDDelegate>)delegate{
++ (void)showFailedMessage:(NSString *)message delegate:(id<CJSimpleHUDDelegate>)delegate tag:(NSUInteger)tag{
     CJSimpleHUD *hud =[CJSimpleHUD sharedCJHud];
     hud.delegate = delegate;
+    hud.tag = tag;
     [hud p_updateHUDFrameWithImageSize:hud->_hudViewSize];
     [self showCusTomMessage:message imageName:hud.failedImageName];
 }
 
-+ (void)showSuccessMessage:(NSString *)message delegate:(id<CJSimpleHUDDelegate>)delegate{
++ (void)showSuccessMessage:(NSString *)message delegate:(id<CJSimpleHUDDelegate>)delegate tag:(NSUInteger)tag{
     CJSimpleHUD *hud =[CJSimpleHUD sharedCJHud];
     hud.delegate = delegate;
+    hud.tag = tag;
     [hud p_updateHUDFrameWithImageSize:hud->_hudViewSize];
     [self showCusTomMessage:message imageName:hud.successImageName];
 }
@@ -123,11 +125,10 @@
 - (void)p_updateHUDFrameWithImageSize:(CGSize)iamgeSize{
     CGFloat width = iamgeSize.width + kTotalHorizonMargin;
     CGFloat height = iamgeSize.height + kTotalVerticalMargin;
-    if (width > SCREENSIZE.width) width = SCREENSIZE.width;
-    if (height > SCREENSIZE.height) height = SCREENSIZE.height;
+    if (width > [UIScreen mainScreen].bounds.size.width) width = [UIScreen mainScreen].bounds.size.width;
+    if (height > [UIScreen mainScreen].bounds.size.height) height = [UIScreen mainScreen].bounds.size.height;
     _hudView.frame = CGRectMake(0, 0, width, height);
     _hudView.center = self.center;
-    NSLog(@"frame:%@",NSStringFromCGRect(_hudView.frame));
 }
 - (CGSize)p_getHUDSizeByImageName:(NSString *)iamgeName{
     UIImage *image = [UIImage imageNamed:iamgeName];

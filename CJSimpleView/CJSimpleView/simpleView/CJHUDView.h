@@ -34,9 +34,9 @@
 // singlton
 + (instancetype)sharedCJHud;
 // 显示成功alert
-+ (void)showFailedMessage:(NSString *)message delegate:(id<CJSimpleHUDDelegate>)delegate;
++ (void)showFailedMessage:(NSString *)message delegate:(id<CJSimpleHUDDelegate>)delegate tag:(NSUInteger)tag;
 // 显示失败alert
-+ (void)showSuccessMessage:(NSString *)message delegate:(id<CJSimpleHUDDelegate>)delegate;
++ (void)showSuccessMessage:(NSString *)message delegate:(id<CJSimpleHUDDelegate>)delegate tag:(NSUInteger)tag;
 // 显示成功alert
 + (void)showFailedMessage:(NSString *)message;
 // 显示失败alert
