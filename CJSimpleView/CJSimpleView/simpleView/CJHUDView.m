@@ -51,7 +51,7 @@
 @end
 
 @implementation CJSimpleHUD
-
+// singleton
 + (instancetype)sharedCJHud{
     static CJSimpleHUD *hud;
     static dispatch_once_t onceToken;
@@ -70,6 +70,7 @@
     });
     return hud;
 }
+#pragma mark - API Implementation
 + (void)showFailedMessage:(NSString *)message delegate:(id<CJSimpleHUDDelegate>)delegate tag:(NSUInteger)tag{
     CJSimpleHUD *hud =[CJSimpleHUD sharedCJHud];
     hud.delegate = delegate;
@@ -187,8 +188,8 @@
             self.userInteractionEnabled = YES;
             [self removeFromSuperview];
             [self endTimer];
-            if ([self.delegate respondsToSelector:@selector(CJHUDdissmiss)]) {
-                [self.delegate CJHUDdissmiss];
+            if ([self.delegate respondsToSelector:@selector(CJHUDdissmissWithtag:)]) {
+                [self.delegate CJHUDdissmissWithtag:self.tag];
             }
             bool isOk = CGAffineTransformIsIdentity(self.hudView.transform);
             if (!isOk) {
@@ -222,11 +223,12 @@
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [self endTimer];
     self.userInteractionEnabled = YES;
-    if ([self.delegate respondsToSelector:@selector(CJHUDdissmiss)]) {
-        [self.delegate CJHUDdissmiss];
+    if ([self.delegate respondsToSelector:@selector(CJHUDdissmissWithtag:)]) {
+        [self.delegate CJHUDdissmissWithtag:self.tag];
     }
     [self.layer removeAllAnimations];
     [self removeFromSuperview];
+    // 执行完就释放
     self.delegate = nil;
 }
 

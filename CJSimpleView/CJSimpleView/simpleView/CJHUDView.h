@@ -15,7 +15,7 @@
 
 @protocol CJSimpleHUDDelegate <NSObject>
 
-- (void)CJHUDdissmiss;
+- (void)CJHUDdissmissWithtag:(NSUInteger)tag;
 
 @end
 
