@@ -58,6 +58,7 @@
     dispatch_once(&onceToken, ^{
         hud = [[CJSimpleHUD alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
         CJHUDView *hudView = [CJHUDView loadNibFromBundle];
+        [hudView layoutIfNeeded];
         hud->_hudView = hudView;
         hud->_timerCount = 0;
         hud->_successImageName = @"success";

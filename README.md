@@ -1,3 +1,3 @@
 # CJSimpleView
 简单的弹框显示
-simple
+* fix iOS10 HUD'imageView size problem by using `layoutIfNeed`
